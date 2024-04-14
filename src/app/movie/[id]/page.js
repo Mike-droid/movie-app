@@ -45,22 +45,22 @@ export default async function Page({ params }) {
 
 	return (
 		<div>
-			<Link href={'/'}>Regresar</Link>
-			<h1 className='text-center text-4xl'>
+			<Link href={'/'}>Regresar a la cartelera</Link>
+			<h1 className='text-center text-4xl mb-4'>
 				Selecciona el día y horario de la función
 			</h1>
 			<section className='flex flex-row justify-around'>
-				<aside className='rounded-xl w-96 bg-white text-black flex flex-col items-center p-1'>
+				<aside className='rounded-xl w-96 border border-teal-400 text-white flex flex-col items-center p-1'>
 					<Image
 						src={`${moviesImagesUrl}${movieData.poster_path}`}
-						width={200}
-						height={200}
+						width='200'
+						height='300'
 						alt={movieData.title}
-						className=''
+						priority={true}
 					/>
 					<span>{movieData.overview}</span>
 				</aside>
-				<aside className='w-96 bg-yellow-300'>
+				<aside className='w-96 bg-teal-500 rounded-xl p-1'>
 					<div className='grid grid-cols-2'>
 						{nextSevenDays.map((date, index) => (
 							<Day
@@ -74,16 +74,18 @@ export default async function Page({ params }) {
 							/>
 						))}
 					</div>
-					<div className='grid grid-cols-3'>
+					<div className='grid grid-cols-3 mt-8'>
 						{hours.map((hour) => (
 							<Hour key={hour} hour={hour} />
 						))}
 					</div>
 				</aside>
 			</section>
-			<div>
+			<div className='flex flex-col items-center'>
 				<Tickets />
-				<Link href='/'>Seleccionar asientos</Link>
+				<Link href='/' className='mt-10 text-2xl bg-green-500 p-2 rounded-xl ease-in duration-300 hover:scale-110'>
+					Seleccionar asientos
+				</Link>
 			</div>
 		</div>
 	);
