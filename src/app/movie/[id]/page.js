@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { moviesUrl, fetchingOptions, moviesImagesUrl } from '@/utils/consts';
 import { Day } from '@/app/components/day';
+import { Hour } from '@/app/components/hour';
+import { generateRandomHours } from '@/utils/generateRandomHours';
 
 const fetchMovieDetails = async (id) => {
 	const url = `${moviesUrl}/movie/${id}?language=en-US`;
@@ -20,6 +22,7 @@ const fetchMovieDetails = async (id) => {
 export default async function Page({ params }) {
 	const { id } = params;
 	const movieData = await fetchMovieDetails(id);
+	const hours = generateRandomHours();
 
 	const daysOfTheWeek = [
 		'Domingo', // Sunday
@@ -61,6 +64,9 @@ export default async function Page({ params }) {
 								{ month: 'long', day: 'numeric' }
 							)}`}
 						/>
+					))}
+					{hours.map((hour) => (
+						<Hour key={hour} hour={hour} />
 					))}
 				</aside>
 			</section>

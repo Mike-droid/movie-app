@@ -26,7 +26,7 @@ export default async function Home() {
 						key={movie.id}
 						title={movie.title}
 						image={`${moviesImagesUrl}${movie.poster_path}`}
-            id={movie.id}
+						id={movie.id}
 					/>
 				))}
 			</section>
