@@ -4,6 +4,7 @@ import { moviesUrl, fetchingOptions, moviesImagesUrl } from '@/utils/consts';
 import { Day } from '@/app/components/day';
 import { Hour } from '@/app/components/hour';
 import { generateRandomHours } from '@/utils/generateRandomHours';
+import { Tickets } from '@/app/components/tickets';
 
 const fetchMovieDetails = async (id) => {
 	const url = `${moviesUrl}/movie/${id}?language=en-US`;
@@ -44,32 +45,46 @@ export default async function Page({ params }) {
 
 	return (
 		<div>
-			<h1>Selecciona el día y horario de la función</h1>
-			<section>
-				<aside>
+			<Link href={'/'}>Regresar</Link>
+			<h1 className='text-center text-4xl'>
+				Selecciona el día y horario de la función
+			</h1>
+			<section className='flex flex-row justify-around'>
+				<aside className='rounded-xl w-96 bg-white text-black flex flex-col items-center p-1'>
 					<Image
 						src={`${moviesImagesUrl}${movieData.poster_path}`}
 						width={200}
 						height={200}
 						alt={movieData.title}
+						className=''
 					/>
 					<span>{movieData.overview}</span>
 				</aside>
-				<aside>
-					{nextSevenDays.map((date, index) => (
-						<Day
-							key={index}
-							day={`${daysOfTheWeek[date.getDay()]}, ${date.toLocaleDateString(
-								'es-ES',
-								{ month: 'long', day: 'numeric' }
-							)}`}
-						/>
-					))}
-					{hours.map((hour) => (
-						<Hour key={hour} hour={hour} />
-					))}
+				<aside className='w-96 bg-yellow-300'>
+					<div className='grid grid-cols-2'>
+						{nextSevenDays.map((date, index) => (
+							<Day
+								key={index}
+								day={`${
+									daysOfTheWeek[date.getDay()]
+								}, ${date.toLocaleDateString('es-ES', {
+									month: 'long',
+									day: 'numeric',
+								})}`}
+							/>
+						))}
+					</div>
+					<div className='grid grid-cols-3'>
+						{hours.map((hour) => (
+							<Hour key={hour} hour={hour} />
+						))}
+					</div>
 				</aside>
 			</section>
+			<div>
+				<Tickets />
+				<Link href='/'>Seleccionar asientos</Link>
+			</div>
 		</div>
 	);
 }
