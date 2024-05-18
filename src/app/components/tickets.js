@@ -68,7 +68,9 @@ export const Tickets = () => {
 					/>
 					<ul>
 						Asientos seleccionados:
-						{selectedSeats.map((seat) => (<li key={seat}>seat</li>))}
+						{selectedSeats.map((seat) => (
+							<li key={seat}>{seat}</li>
+						))}
 					</ul>
 				</>
 			)}
