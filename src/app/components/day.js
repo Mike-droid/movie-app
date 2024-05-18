@@ -6,7 +6,13 @@ export const Day = ({ day }) => {
 				className='bg-white w-f h-auto text-black cursor-pointer rounded-md p-1 ease-in duration-150 hover:bg-sky-500'
 			>
 				{day}
-				<input type='radio' id={day} name='daysWeek' className='ml-1' />
+				<input
+					type='radio'
+					id={day}
+					name='daysWeek'
+					className='ml-1'
+					defaultChecked={true}
+				/>
 			</label>
 		</fieldset>
 	);

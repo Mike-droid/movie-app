@@ -4,7 +4,13 @@ export const Hour = ({ hour }) => {
 			<label htmlFor={hour} className='cursor-pointer'>
 				{hour}
 			</label>
-			<input type='radio' name='hour' id={hour} className='ml-1' />
+			<input
+				type='radio'
+				name='hour'
+				id={hour}
+				className='ml-1'
+				defaultChecked={true}
+			/>
 		</fieldset>
 	);
 };

@@ -5,6 +5,7 @@ import { Day } from '@/app/components/day';
 import { Hour } from '@/app/components/hour';
 import { generateRandomHours } from '@/utils/generateRandomHours';
 import { Tickets } from '@/app/components/tickets';
+import { Seats } from '@/app/components/seats';
 
 const fetchMovieDetails = async (id) => {
 	const url = `${moviesUrl}/movie/${id}?language=en-US`;
@@ -12,7 +13,6 @@ const fetchMovieDetails = async (id) => {
 	try {
 		const res = await fetch(url, fetchingOptions);
 		const data = await res.json();
-		console.log(data);
 		return data;
 	} catch (error) {
 		console.error('error fetching movie details: ', error);
@@ -81,11 +81,8 @@ export default async function Page({ params }) {
 					</div>
 				</aside>
 			</section>
-			<div className='flex flex-col items-center'>
+			<div className='flex flex-col items-center mb-20'>
 				<Tickets />
-				<Link href='/' className='mt-10 text-2xl bg-green-500 p-2 rounded-xl ease-in duration-300 hover:scale-110'>
-					Seleccionar asientos
-				</Link>
 			</div>
 		</div>
 	);
