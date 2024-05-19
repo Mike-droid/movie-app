@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { moviesUrl, fetchingOptions, moviesImagesUrl } from '@/utils/consts';
+import { moviesUrl, fetchingOptions, moviesImagesUrl, authenticateUrl, authenticationOptions } from '@/utils/consts';
 import { Day } from '@/app/components/day';
 import { Hour } from '@/app/components/hour';
 import { generateRandomHours } from '@/utils/generateRandomHours';
