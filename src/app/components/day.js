@@ -1,4 +1,4 @@
-export const Day = ({ day }) => {
+export const Day = ({ day, handleDayChange }) => {
 	return (
 		<fieldset className='flex justify-start my-2'>
 			<label
@@ -12,6 +12,7 @@ export const Day = ({ day }) => {
 					name='daysWeek'
 					className='ml-1'
 					defaultChecked={true}
+					onChange={() => handleDayChange(day)}
 				/>
 			</label>
 		</fieldset>

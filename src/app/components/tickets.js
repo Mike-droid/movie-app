@@ -1,9 +1,12 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 import { Seats } from './seats';
+import { useBooking } from '../context/BookingContext';
 
-export const Tickets = () => {
+export const Tickets = ({ movieName, showtime }) => {
+	const { bookingDetails, setBookingDetails } = useBooking();
 	const [ticketQuantity, setTicketQuantity] = useState(1);
 	const [hiddenSeats, setHiddenSeats] = useState(false);
 	const [disabledButtons, setDisabledButtons] = useState(false);
@@ -17,6 +20,16 @@ export const Tickets = () => {
 				return [...prev, seatNumber];
 			}
 			return prev;
+		});
+	};
+
+	const handleConfirm = () => {
+		setBookingDetails({
+			...bookingDetails,
+			selectedSeats,
+			ticketQuantity,
+			movieName,
+			showtime,
 		});
 	};
 
@@ -72,6 +85,15 @@ export const Tickets = () => {
 							<li key={seat}>{seat}</li>
 						))}
 					</ul>
+					{selectedSeats.length === ticketQuantity && (
+						<Link
+							href='/checkout'
+							className='mt-10 text-2xl bg-green-500 p-2 rounded-xl ease-in duration-300 hover:scale-110'
+							onClick={handleConfirm}
+						>
+							Confimar boletos
+						</Link>
+					)}
 				</>
 			)}
 		</div>
