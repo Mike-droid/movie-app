@@ -2,12 +2,13 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { moviesUrl, fetchingOptions, moviesImagesUrl, authenticateUrl, authenticationOptions } from '@/utils/consts';
+import { Suspense, useEffect, useState } from 'react';
+import { moviesUrl, moviesImagesUrl, fetchingOptions } from '@/utils/consts';
 import { Day } from '@/app/components/day';
 import { Hour } from '@/app/components/hour';
 import { generateRandomHours } from '@/utils/generateRandomHours';
 import { Tickets } from '@/app/components/tickets';
+import Loading from './loading';
 
 const fetchMovieDetails = async (id) => {
 	const url = `${moviesUrl}/movie/${id}?language=en-US`;
@@ -15,7 +16,6 @@ const fetchMovieDetails = async (id) => {
 	try {
 		const res = await fetch(url, fetchingOptions);
 		const data = await res.json();
-		console.log('first data: ', data);
 		return data;
 	} catch (error) {
 		throw new Error('Failed to fetch the movie details: ', error);
@@ -32,7 +32,6 @@ export default function Page({ params }) {
 	useEffect(() => {
 		const fetchData = async () => {
 			const data = await fetchMovieDetails(id);
-			console.log('data: ', data);
 			setMovieData(data);
 			setHours(generateRandomHours);
 		};
@@ -101,14 +100,16 @@ export default function Page({ params }) {
 			</h1>
 			<section className='flex flex-row justify-around'>
 				<aside className='rounded-xl w-96 border border-teal-400 text-white flex flex-col items-center p-1'>
-					<Image
-						src={`${moviesImagesUrl}/${movieData.poster_path}`}
-						width='200'
-						height='300'
-						alt={movieData.title}
-						priority={true}
-					/>
-					<span>{movieData.overview}</span>
+					<Suspense fallback={<Loading />}>
+						<Image
+							src={`${moviesImagesUrl}/${movieData.poster_path}`}
+							width='200'
+							height='300'
+							alt={movieData.title}
+							priority={true}
+						/>
+						<span>{movieData.overview}</span>
+					</Suspense>
 				</aside>
 				<aside className='w-96 bg-teal-500 rounded-xl p-1'>
 					<div className='grid grid-cols-2'>
