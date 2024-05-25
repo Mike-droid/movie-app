@@ -48,7 +48,7 @@ export const Tickets = ({ movieName, showtime }) => {
 				>
 					-
 				</button>
-				<span className='font-bold'>Boletos: {ticketQuantity}</span>
+				<span className='font-bold'>Tickets: {ticketQuantity}</span>
 				<span>(máximo 6)</span>
 				<button
 					className='bg-white text-black rounded-full w-14 h-14 disabled:cursor-not-allowed text-5xl ml-5'
@@ -70,7 +70,7 @@ export const Tickets = ({ movieName, showtime }) => {
 					setDisabledButtons(true);
 				}}
 			>
-				Seleccionar asientos
+				Select seats
 			</button>
 			{hiddenSeats && (
 				<>
@@ -80,7 +80,7 @@ export const Tickets = ({ movieName, showtime }) => {
 						onSeatSelect={handleSeatSelect}
 					/>
 					<ul>
-						Asientos seleccionados:
+						Selected seats:
 						{selectedSeats.map((seat) => (
 							<li key={seat}>{seat}</li>
 						))}
@@ -91,7 +91,7 @@ export const Tickets = ({ movieName, showtime }) => {
 							className='mt-10 text-2xl bg-green-500 p-2 rounded-xl ease-in duration-300 hover:scale-110'
 							onClick={handleConfirm}
 						>
-							Confimar boletos
+							Confirm seats
 						</Link>
 					)}
 				</>

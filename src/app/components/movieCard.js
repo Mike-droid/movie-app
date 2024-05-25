@@ -10,7 +10,7 @@ export const MovieCard = ({ image, title, id }) => {
 			<span>{title}</span>
 			<Image src={image} alt={title} width='200' height='300' priority={true} />
 			<button className='bg-red-600 rounded-sm px-1 ease-in-out duration-300 hover:scale-110 mt-1'>
-				Comprar boletos
+				Get tickets
 			</button>
 		</Link>
 	);

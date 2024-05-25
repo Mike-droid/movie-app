@@ -42,13 +42,13 @@ export default function Page({ params }) {
 		if (hours.length > 0) {
 			const currentDate = new Date();
 			const daysOfTheWeek = [
-				'Domingo', // Sunday
-				'Lunes', // Monday
-				'Martes', // Tuesday
-				'Miércoles', // Wednesday
-				'Jueves', // Thursday
-				'Viernes', // Friday
-				'Sábado', // Saturday
+				'Sunday',
+				'Monday',
+				'Tuesday',
+				'Wednesday',
+				'Thursday',
+				'Friday',
+				'Saturday',
 			];
 
 			const defaultDay = `${
@@ -76,13 +76,13 @@ export default function Page({ params }) {
 	}
 
 	const daysOfTheWeek = [
-		'Domingo', // Sunday
-		'Lunes', // Monday
-		'Martes', // Tuesday
-		'Miércoles', // Wednesday
-		'Jueves', // Thursday
-		'Viernes', // Friday
-		'Sábado', // Saturday
+		'Sunday',
+		'Monday',
+		'Tuesday',
+		'Wednesday',
+		'Thursday',
+		'Friday',
+		'Saturday',
 	];
 
 	const currentDate = new Date();
@@ -94,9 +94,9 @@ export default function Page({ params }) {
 
 	return (
 		<div>
-			<Link href={'/'}>Regresar a la cartelera</Link>
+			<Link href={'/'}>Return to movie listings</Link>
 			<h1 className='text-center text-4xl mb-4'>
-				Selecciona el día y horario de la función
+				Select time and date for movie
 			</h1>
 			<section className='flex flex-row justify-around'>
 				<aside className='rounded-xl w-96 border border-teal-400 text-white flex flex-col items-center p-1'>

@@ -19,7 +19,7 @@ export default async function Home() {
 	return (
 		<>
 			<h1>Movie App</h1>
-			<h1>Compra boletos para ver tu película favorita</h1>
+			<h1>Get tickets for your favorite movies!</h1>
 			<section className='grid grid-cols-3 justify-items-center w-full gap-6'>
 				{movieData.map((movie) => (
 					<MovieCard
