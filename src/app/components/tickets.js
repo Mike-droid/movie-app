@@ -49,7 +49,7 @@ export const Tickets = ({ movieName, showtime }) => {
 					-
 				</button>
 				<span className='font-bold'>Tickets: {ticketQuantity}</span>
-				<span>(máximo 6)</span>
+				<span>(max 6)</span>
 				<button
 					className='bg-white text-black rounded-full w-14 h-14 disabled:cursor-not-allowed text-5xl ml-5'
 					onClick={() => {

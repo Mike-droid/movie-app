@@ -140,7 +140,7 @@ export default function Page({ params }) {
 			<div className='flex flex-col items-center mb-20'>
 				<Tickets
 					movieName={movieData.title}
-					showtime={`${selectedDay} a las ${selectedHour}`}
+					showtime={`${selectedDay} at ${selectedHour}`}
 				/>
 			</div>
 		</div>
