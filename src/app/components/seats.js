@@ -2,12 +2,17 @@ export const Seats = ({ ticketQuantity, selectedSeats, onSeatSelect }) => {
 	const totalSeats = 36;
 
 	const handleSeatClick = (seatNumber) => {
-		onSeatSelect(seatNumber);
+		if (
+			selectedSeats.includes(seatNumber) ||
+			selectedSeats.length < ticketQuantity
+		) {
+			onSeatSelect(seatNumber);
+		}
 	};
 
 	return (
 		<section className='mt-5'>
-			<h3 className='text-center my-5 bg-white text-black'>PANTALLA</h3>
+			<h3 className='text-center my-5 bg-white text-black'>SCREEN</h3>
 			<div className='grid grid-cols-6 gap-2'>
 				{Array.from({ length: totalSeats }, (_, index) => index + 1).map(
 					(seat) => (

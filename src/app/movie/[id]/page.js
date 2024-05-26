@@ -72,7 +72,7 @@ export default function Page({ params }) {
 	};
 
 	if (!movieData) {
-		return <div>Cargando...</div>;
+		return <h1>Loading...</h1>;
 	}
 
 	const daysOfTheWeek = [
