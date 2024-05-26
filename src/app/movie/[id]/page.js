@@ -118,7 +118,7 @@ export default function Page({ params }) {
 								key={index}
 								day={`${
 									daysOfTheWeek[date.getDay()]
-								}, ${date.toLocaleDateString('es-ES', {
+								}, ${date.toLocaleDateString('en-US', {
 									month: 'long',
 									day: 'numeric',
 								})}`}
