@@ -20,7 +20,7 @@ export default async function Home() {
 		<>
 			<h1>Movie App</h1>
 			<h1>Get tickets for your favorite movies!</h1>
-			<section className='grid grid-cols-3 justify-items-center w-full gap-6'>
+			<section className='grid lg:grid-cols-3 justify-items-center w-full gap-6 sm:grid-cols-1 md:grid-cols-2'>
 				{movieData.map((movie) => (
 					<MovieCard
 						key={movie.id}

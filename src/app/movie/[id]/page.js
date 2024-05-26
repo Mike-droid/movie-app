@@ -53,7 +53,7 @@ export default function Page({ params }) {
 
 			const defaultDay = `${
 				daysOfTheWeek[currentDate.getDay()]
-			}, ${currentDate.toLocaleDateString('es-ES', {
+			}, ${currentDate.toLocaleDateString('en-US', {
 				month: 'long',
 				day: 'numeric',
 			})}`;
@@ -98,7 +98,7 @@ export default function Page({ params }) {
 			<h1 className='text-center text-4xl mb-4'>
 				Select time and date for movie
 			</h1>
-			<section className='flex flex-row justify-around'>
+			<section className='flex lg:flex-row justify-around sm:flex-col sm:place-items-center'>
 				<aside className='rounded-xl w-96 border border-teal-400 text-white flex flex-col items-center p-1'>
 					<Suspense fallback={<Loading />}>
 						<Image
